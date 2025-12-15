@@ -1,5 +1,6 @@
 package com.example.weathercracker.data.repository
 
+import com.example.weathercracker.BuildConfig
 import com.example.weathercracker.data.api.WeatherApi
 import com.example.weathercracker.data.model.WeatherResponse
 import com.example.weathercracker.util.Constants
@@ -14,7 +15,7 @@ class WeatherRepositoryImpl @Inject constructor(
             val response = api.getWeatherByLocation(
                 lat = lat,
                 lon = lon,
-                apiKey = Constants.API_KEY,
+                apiKey = BuildConfig.API_KEY,
                 units = Constants.METRIC_UNITS
             )
             Result.success(response)
@@ -27,7 +28,7 @@ class WeatherRepositoryImpl @Inject constructor(
         return try {
             val response = api.getWeatherByCity(
                 cityName = cityName,
-                apiKey = Constants.API_KEY,
+                apiKey = BuildConfig.API_KEY,
                 units = Constants.METRIC_UNITS
             )
             Result.success(response)
